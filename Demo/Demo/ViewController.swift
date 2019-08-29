@@ -76,11 +76,10 @@ extension ViewController: StatefulTableDelegate {
   }
   
   // Uncomment to use a custom initial loading view
-//  func statefulTable(_ tableView: StatefulTableView,
-//                     viewForInitialLoad defaultView: UIActivityIndicatorView) -> UIView? {
-//
-//    return defaultView
-//  }
+  func statefulTable(_ tableView: StatefulTableView,
+                     viewForInitialLoad defaultView: UIActivityIndicatorView) -> UIView? {
+    return defaultView
+  }
   
   // Uncomment to use a custom initial loading error view
 //  func statefulTable(_ tableView: StatefulTableView,

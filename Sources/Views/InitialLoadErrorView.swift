@@ -24,6 +24,8 @@ public class InitialLoadErrorView: UIView {
   public var button: UIButton? = nil
   public var delegate: InitialLoadErrorViewDelegate? = nil
   
+  public var shouldShowRetryButton: Bool = false
+  
   // MARK: Constructors
   public convenience init(error: NSError?, delegate: InitialLoadErrorViewDelegate?) {
     self.init(frame: .zero)
@@ -57,7 +59,7 @@ public class InitialLoadErrorView: UIView {
     centeredSize.width = label.bounds.width
     centeredSize.height = label.bounds.height
     
-    if let _ = error {
+    if error != nil || shouldShowRetryButton {
       let button = constrainedButton()
       centeredSize.width = max(centeredSize.width, button.bounds.width)
       centeredSize.height = label.bounds.height + button.bounds.height + 5
