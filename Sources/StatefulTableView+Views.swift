@@ -53,6 +53,7 @@ extension StatefulTableView: InitialLoadErrorViewDelegate {
   
   public func initialLoadErrorView(_ errorView: InitialLoadErrorView, didTapErrorButton: UIButton) {
     DispatchQueue.main.async { [weak self] in
+      self?.tableView.reloadData()
       self?.triggerInitialLoad()
     }
   }
