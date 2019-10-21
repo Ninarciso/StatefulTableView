@@ -99,7 +99,11 @@ public final class StatefulTableView: UIView {
 
   internal lazy var dynamicContentView: UIView = { [unowned self] in
     let view = UIView(frame: self.bounds)
-    view.backgroundColor = .white
+    if #available(iOS 13.0, *) {
+      view.backgroundColor = .systemBackground
+    } else {
+      view.backgroundColor = .white
+    }
     view.isHidden = true
     return view
   }()

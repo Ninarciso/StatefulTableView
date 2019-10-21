@@ -24,7 +24,13 @@ extension StatefulTableView {
   }
 
   internal var viewForInitialLoad: UIView? {
-    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
+    var activityIndicatorView: UIActivityIndicatorView
+    if #available(iOS 13.0, *) {
+      activityIndicatorView = UIActivityIndicatorView(style: .medium)
+      activityIndicatorView.color = .label
+    } else {
+      activityIndicatorView = UIActivityIndicatorView(style: .gray)
+    }
     activityIndicatorView.startAnimating()
     guard let statefulDelegate = statefulDelegate else {
       return activityIndicatorView
